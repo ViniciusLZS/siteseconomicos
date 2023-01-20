@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EditUserRecordController;
 use App\Http\Controllers\ListUserController;
 use App\Http\Controllers\viewUserController;
 use Illuminate\Support\Facades\Route;
@@ -25,5 +26,8 @@ Route::post('/listUsers/update', [ListUserController::class, 'update'])->name('l
 Route::post('/listUsers/destroy', [ListUserController::class, 'destroy'])->name('listUsers.destroy');
 
 //Router viewUser
-
 Route::resource('viewUser', viewUserController::class)->except(['update']);
+
+//Router editUserRecord
+Route::resource('editUserRecord', EditUserRecordController::class)->except(['update']);
+Route::post('/editUserRecord/update', [EditUserRecordController::class, 'update'])->name('editUserRecord.update');
