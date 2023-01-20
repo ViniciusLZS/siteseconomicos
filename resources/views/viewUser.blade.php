@@ -10,9 +10,7 @@
 @endphp
 
 @section('content')
-  
-
-<div class="page-inner">
+  <div class="page-inner">
     <div class="page-header">
       <h4 class="page-title">Usuário</h4>
       <ul class="breadcrumbs">
@@ -75,7 +73,7 @@
         </div>
       </div>
     </div>
-</div>
+  </div>
 @endsection
 
 @section('script')
