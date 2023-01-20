@@ -120,10 +120,12 @@
 											</td>
 											<td>
 												<div class="form-button-action d-flex justify-content-center">
-												
-													<button type="button" data-toggle="tooltip"  title="Visializar" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
+													<form class="mb-0" action="{{route('viewUser.show', $user->id)}}" method="GET">
+														@csrf
+														<button type="submit" data-toggle="tooltip"  title="Visializar" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
 														<i class="fa icon-eye"></i>
 													</button>
+													</form>
 
 													<button type="button" data-toggle="tooltip"  title="Editar" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
 														<i class="fa fa-edit"></i>
@@ -143,9 +145,6 @@
 				</div>
 			</div>
 		</div>
-
-
-		
 @endsection
 
 <script src="../assets/js/listUser.js"></script>
