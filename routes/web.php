@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ListUserController;
+use App\Http\Controllers\viewUserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,5 +22,8 @@ Route::get('/', function () {
 // Router List User
 Route::get('/listUsers', [ListUserController::class, 'index'])->name('listUsers');
 Route::post('/listUsers/update', [ListUserController::class, 'update'])->name('listUsers.update');
-// Route::resource('listUsers', ListUserController::class)->except(['update']);
 Route::post('/listUsers/destroy', [ListUserController::class, 'destroy'])->name('listUsers.destroy');
+
+//Router viewUser
+
+Route::resource('viewUser', viewUserController::class)->except(['update']);
