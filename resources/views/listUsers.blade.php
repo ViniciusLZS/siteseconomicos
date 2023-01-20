@@ -127,10 +127,13 @@
 													</button>
 													</form>
 
-													<button type="button" data-toggle="tooltip"  title="Editar" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
+													<form class="mb-0" action="{{route('editUserRecord.show', $user->id)}}" method="GET">
+														@csrf
+														<button type="submit" data-toggle="tooltip"  title="Editar" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
 														<i class="fa fa-edit"></i>
 													</button>
-													
+													</form>
+
 													<button onclick="delete_Modal({{ $user }})" class="btn btn-link btn-danger" data-toggle="modal" title="Deletar" data-target="#addRowModal">
 														<i class="fa fa-times"></i>
 													</button>
