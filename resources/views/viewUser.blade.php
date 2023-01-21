@@ -41,15 +41,15 @@
     </div>
     <div class="row">
       <div class="col-md-12">
+
         <div class="card">
           <div class="card-header">
             <div class="card-title">{{$users->name}}</div>
           </div>
           <div class="card-body">
-            <div class="card-sub">									
-              
-            </div>
-            <table class="table mt-3">
+            <div class="card-sub"></div>
+            <div class="table-responsive">
+              <table class="table table-bordered mt-3">
               <thead>
                 <tr class="text-center">
                   <th scope="col">Nome</th>
@@ -68,7 +68,8 @@
                   <td>{{$users->status === 1 ? "Ativo": "Desativado"}}</td>
                 </tr>
               </tbody>
-            </table>
+              </table>
+            </div>
           </div>
         </div>
       </div>
