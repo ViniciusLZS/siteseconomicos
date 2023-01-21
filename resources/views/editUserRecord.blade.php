@@ -54,7 +54,12 @@
 
                         <div class="form-group">
                           <label for="name">Nome Completo</label>
-                          <input type="text" value="{{$users->name}}" name="name" class="form-control" id="name" placeholder="full name">
+                          <input type="text" value="{{$users->name}}" name="name" class="form-control  @error('name') is-invalid @enderror" id="name" placeholder="full name">
+                           @if ($errors->has('name'))
+                            <span class="invalid-feedback">
+                              <strong>{{ $errors->first('name') }}</strong>
+                            </span>
+                          @endif
                         </div>
 
                         <div class="form-group">
@@ -69,7 +74,14 @@
 
                         <div class="form-group">
                           <label for="cpf">CPF</label>
-                          <input type="text" value="{{$users->cpf}}" name="cpf" class="form-control" id="cpf" placeholder="CPF">
+                          <input type="text" value="{{$users->cpf}}" name="cpf" class="form-control @error('cpf') is-invalid @enderror" id="cpf" placeholder="00000000000">
+                          <small id="emailHelp2" class="form-text text-muted">Somente números.</small>
+                          
+                          @if ($errors->has('cpf'))
+                            <span class="invalid-feedback">
+                              <strong>{{ $errors->first('cpf') }}</strong>
+                            </span>
+                          @endif
                         </div>
 
                         <div class="form-group">

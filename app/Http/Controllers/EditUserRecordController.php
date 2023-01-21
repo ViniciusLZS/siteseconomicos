@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CustomerRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -70,19 +71,9 @@ class EditUserRecordController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(CustomerRequest $request)
     {
-        Validator::make(
-            $request->all(),
-            [
-                'name' => 'required|string',
-                'email' => 'required|string',
-            ],
-            [
-                'required' => 'O campo :attribute é obrigatório.',
-            ]
-        )->validate();
-        
+
         if ($request->password !== $request->Confirm_Password)
             return back()->withErrors(["cadastro" => "Senha e Confirmar Senha não combinam!"]);
             
