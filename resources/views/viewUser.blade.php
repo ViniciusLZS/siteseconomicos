@@ -29,7 +29,7 @@
           <i class="flaticon-right-arrow"></i>
         </li>
           <li class="nav-item">
-            <a href="#">Lista de Usuários</a>
+            <a href="{{ route('listUsers') }}">Lista de Usuários</a>
           </li>
         <li class="separator">
           <i class="flaticon-right-arrow"></i>
