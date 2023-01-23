@@ -106,7 +106,6 @@
 											<td>{{$user->occupation}}</td>
 											<td>{{$user->email}}</td>
 											<td>{{$user->cpf}}</td>
-										
 											<td>
 												<form action="{{ route('listUsers.update') }}" method="post">
 													@csrf
@@ -151,6 +150,7 @@
 @endsection
 
 <script src="../assets/js/listUser.js"></script>
+<script src="../assets/js/maskCpf.js"></script>
 
 @section('script')
 	<script >
