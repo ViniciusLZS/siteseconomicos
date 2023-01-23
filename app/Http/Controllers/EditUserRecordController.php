@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CustomerRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 
@@ -73,14 +74,25 @@ class EditUserRecordController extends Controller
      */
     public function update(CustomerRequest $request)
     {
-        $user = User::find($request->id);
-        $user->name = $request->name;
-        $user->occupation = $request->occupation;
-        $user->email = $request->email;
-        $user->cpf = $request->cpf;
-        $user->password = Hash::make($request->password);
-        $user->save();
-        return back()->with("sucess", "Usuario atualizado com sucesso");
+        DB::beginTransaction();
+        try{
+            $user = User::find($request->id);
+            $user->name = $request->name;
+            // abort(500, 'Erro de teste');
+            $user->occupation = $request->occupation;
+            $user->email = $request->email;
+            $user->cpf = $request->cpf;
+            $user->password = Hash::make($request->password);
+            $user->save();
+
+            DB::commit();
+            return back()->with("sucess", "Usuario atualizado com sucesso.");
+
+        } catch(\Exception $exception) {
+            DB::rollBack();
+            return 'Message:' . $exception->getMessage();
+        }
+        
     }
 
     /**
