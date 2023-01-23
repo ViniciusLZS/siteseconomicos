@@ -31,6 +31,9 @@
 <script src="../assets/js/core/popper.min.js"></script>
 <script src="../assets/js/core/bootstrap.min.js"></script>
 
+<!-- jQuery mask -->
+<script src="../assets/js/jquery.mask.min.js"></script>
+
 <!-- jQuery UI -->
 <script src="../assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
 <script src="../assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
