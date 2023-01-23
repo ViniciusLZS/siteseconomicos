@@ -73,10 +73,6 @@ class EditUserRecordController extends Controller
      */
     public function update(CustomerRequest $request)
     {
-
-        if ($request->password !== $request->Confirm_Password)
-            return back()->withErrors(["cadastro" => "Senha e Confirmar Senha não combinam!"]);
-            
         $user = User::find($request->id);
         $user->name = $request->name;
         $user->occupation = $request->occupation;
