@@ -26,9 +26,24 @@ class CustomerRequest extends FormRequest
     {
         return [
             'name'                  =>  ['required','string'],
-            'email'                 =>  ['present','email'],
-            'occupation'            =>  ['present','string'],
+            'password'              =>  ['confirmed'],
+            'email'                 =>  ['required','email', "unique:users,email,{$this->id}"],
+            'occupation'            =>  ['required','string'],
             'cpf'                   =>  ["required","unique:users,cpf,{$this->id}",new RightCpf],
         ];
     }
+    public function attributes()
+    {
+        return [
+            'name' => 'nome',
+            'email' => 'email',
+            'occupation' => 'função',
+            'cpf' => 'CPF'
+        ];
+    }
+
+    // public function messages()
+    // {
+    //     //
+    // }
 }
