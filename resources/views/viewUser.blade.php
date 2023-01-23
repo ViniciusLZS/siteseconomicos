@@ -50,24 +50,24 @@
             <div class="card-sub"></div>
             <div class="table-responsive">
               <table class="table table-bordered mt-3">
-              <thead>
-                <tr class="text-center">
-                  <th scope="col">Nome</th>
-                  <th scope="col">Função</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">CPF</th>
-                  <th scope="col">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="text-center">
-                  <td>{{$users->name}}</td>
-                  <td>{{$users->occupation}}</td>
-                  <td>{{$users->email}}</td>
-                  <td>{{$users->cpf}}</td>
-                  <td>{{$users->status === 1 ? "Ativo": "Desativado"}}</td>
-                </tr>
-              </tbody>
+                <thead>
+                  <tr class="text-center">
+                    <th scope="col">Nome</th>
+                    <th scope="col">Função</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">CPF</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="text-center">
+                    <td>{{$users->name}}</td>
+                    <td>{{$users->occupation}}</td>
+                    <td>{{$users->email}}</td>
+                    <td class="cpf">{{$users->cpf}}</td>
+                    <td>{{$users->status === 1 ? "Ativo": "Desativado"}}</td>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </div>
@@ -78,4 +78,5 @@
 @endsection
 
 @section('script')
+  <script src="../assets/js/viewUser.js"></script>
 @endsection
