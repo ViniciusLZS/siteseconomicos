@@ -87,8 +87,7 @@
 
                         <div class="form-group">
                           <label for="cpf">CPF</label>
-                          <input type="text" value="{{$users->cpf}}" name="cpf" class="form-control @error('cpf') is-invalid @enderror" id="cpf" placeholder="00000000000">
-                          {{-- <small id="emailHelp2" class="form-text text-muted">Somente números.</small> --}}
+                          <input type="text" value="{{$users->cpf}}" name="cpf" class="cpf form-control @error('cpf') is-invalid @enderror" id="cpf" placeholder="000.000.000-00">
                           
                           @if ($errors->has('cpf'))
                             <span class="invalid-feedback">
@@ -127,4 +126,5 @@
 @endsection
 
 @section('script')
+  <script src="../assets/js/maskCpf.js"></script>
 @endsection
