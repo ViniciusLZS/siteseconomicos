@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CustomerRequest;
+use App\Http\Requests\userRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -72,16 +72,22 @@ class EditUserRecordController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(CustomerRequest $request)
+    public function update(userRequest $request)
     {
+        function FormatCpf($requestCpf){
+
+            // Extrai somente os números
+            $cpf = preg_replace( '/[^0-9]/is', '', $requestCpf );
+            return $cpf;
+        }
+
         DB::beginTransaction();
         try{
             $user = User::find($request->id);
             $user->name = $request->name;
-            // abort(500, 'Erro de teste');
             $user->occupation = $request->occupation;
             $user->email = $request->email;
-            $user->cpf = $request->cpf;
+            $user->cpf = FormatCpf($request->cpf);
             $user->password = Hash::make($request->password);
             $user->save();
 
