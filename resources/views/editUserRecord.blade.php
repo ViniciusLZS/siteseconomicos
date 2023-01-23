@@ -55,7 +55,8 @@
                         <div class="form-group">
                           <label for="name">Nome Completo</label>
                           <input type="text" value="{{$users->name}}" name="name" class="form-control  @error('name') is-invalid @enderror" id="name" placeholder="full name">
-                           @if ($errors->has('name'))
+
+                          @if ($errors->has('name'))
                             <span class="invalid-feedback">
                               <strong>{{ $errors->first('name') }}</strong>
                             </span>
@@ -64,18 +65,29 @@
 
                         <div class="form-group">
                           <label for="Funcao">Função</label>
-                          <input type="text" value="{{$users->occupation}}" name="occupation" class="form-control" id="Funcao" placeholder="Occupation">
+                          <input type="text" value="{{$users->occupation}}" name="occupation" class="form-control @error('occupation') is-invalid @enderror" id="Funcao" placeholder="Occupation">
+
+                          @if ($errors->has('occupation'))
+                            <span class="invalid-feedback">
+                              <strong>{{ $errors->first('occupation') }}</strong>
+                            </span>
+                          @endif
                         </div>
 
                         <div class="form-group">
                           <label for="email2">Email</label>
-                          <input type="email" value="{{$users->email}}" name="email" class="form-control" id="email2" placeholder="example@example.com">
+                          <input type="email" value="{{$users->email}}" name="email" class="form-control @error('email') is-invalid @enderror" id="email2" placeholder="example@example.com">
+
+                          @if ($errors->has('email'))
+                            <span class="invalid-feedback">
+                              <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                          @endif
                         </div>
 
                         <div class="form-group">
                           <label for="cpf">CPF</label>
-                          <input type="text" value="{{$users->cpf}}" name="cpf" class="form-control @error('cpf') is-invalid @enderror" id="cpf" placeholder="00000000000">
-                          <small id="emailHelp2" class="form-text text-muted">Somente números.</small>
+                          <input type="text" value="{{$users->cpf}}" name="cpf" class="cpf form-control @error('cpf') is-invalid @enderror" id="cpf" placeholder="000.000.000-00">
                           
                           @if ($errors->has('cpf'))
                             <span class="invalid-feedback">
@@ -86,12 +98,18 @@
 
                         <div class="form-group">
                           <label for="password">Senha</label>
-                          <input type="password" class="form-control" id="password" name="password" placeholder="Password"> 
+                          <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Password"> 
+
+                          @if ($errors->has('password'))
+                            <span class="invalid-feedback">
+                              <strong>{{ $errors->first('password') }}</strong>
+                            </span>
+                          @endif
                         </div>
 
                         <div class="form-group">
                           <label for="password">Confirmar Senha</label>
-                          <input type="password" class="form-control" id="password" name="Confirm_Password" placeholder="Confirm Password">
+                          <input type="password" class="form-control" id="password" name="password_confirmation" placeholder="Confirm Password">
                         </div>
                       </div>
                     </div>
@@ -108,4 +126,5 @@
 @endsection
 
 @section('script')
+  <script src="../assets/js/maskCpf.js"></script>
 @endsection
