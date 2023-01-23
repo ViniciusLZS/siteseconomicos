@@ -78,5 +78,5 @@
 @endsection
 
 @section('script')
-  <script src="../assets/js/viewUser.js"></script>
+  <script src="../assets/js/maskCpf.js"></script>
 @endsection
