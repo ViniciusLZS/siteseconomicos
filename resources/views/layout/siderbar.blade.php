@@ -67,7 +67,7 @@
 						</li>
 						<li class="nav-item">
 							<a data-toggle="collapse" href="#base">
-								<i class="fas fa-layer-group"></i>
+								<i class="fas fa-user-alt"></i>
 								<p>Usuários</p>
 								<span class="caret"></span>
 							</a>
