@@ -75,6 +75,12 @@
 							</div>
 						</div>
 
+						<!-- Notification -->
+						@if (session('sucess'))
+							<p class="notify d-none">{{ session('sucess') }}</p>
+						@endif
+
+
 						<div class="table-responsive">
 							<table id="add-row" class="display table table-striped table-hover" >
 								<thead>
@@ -110,7 +116,6 @@
 												<form action="{{ route('listUsers.update') }}" method="post">
 													@csrf
 													<input type="hidden" name="id" value="{{ $user->id }}"/>
-
 													<div class=" form-switch d-flex justify-content-center">
 														
 														<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" {{$user->status === 1 ? 'checked' : ''}} onChange="this.form.submit()" name="status" value="{{$user->status}}">

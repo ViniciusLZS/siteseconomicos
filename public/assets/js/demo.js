@@ -16,19 +16,23 @@ Circles.create({
 })
 
 //Notify
-$.notify({
-	icon: 'flaticon-alarm-1',
-	title: 'Atlantis Lite',
-	message: 'Free Bootstrap 4 Admin Dashboard',
-},{
-	type: 'info',
-	placement: {
-		from: "bottom",
-		align: "right"
-	},
-	time: 1000,
-});
+function notify(){
+	const test = document.querySelector('.notify');
+	const teste = test.innerText;
 
+	$.notify({
+		icon: 'flaticon-alarm-1',
+		title: 'Notificação',
+		message: teste,
+	},{
+		type: 'info',
+		placement: {
+			from: "bottom",
+			align: "right"
+		},
+		time: 1000,
+	});
+}
 // JQVmap
 $('#map-example').vectorMap(
 {

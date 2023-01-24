@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             
             $table->string('occupation');
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(1)->changer();
             $table->string('cpf')->unique();
             
             $table->string('email')->unique();

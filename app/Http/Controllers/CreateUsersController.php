@@ -5,11 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\userRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 
-class EditUserRecordController extends Controller
+class CreateUsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +16,7 @@ class EditUserRecordController extends Controller
      */
     public function index()
     {
-        //
+        return view('createUsers');
     }
 
     /**
@@ -37,9 +35,24 @@ class EditUserRecordController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(userRequest $request)
     {
-        //
+        function FormatCpf($requestCpf){
+            // Extrai somente os números
+            $cpf = preg_replace( '/[^0-9]/is', '', $requestCpf );
+            return $cpf;
+        }
+
+        // salvar usuário.
+        $user = new User();
+        $user->name = $request->name;
+        $user->occupation = $request->occupation;
+        $user->email = $request->email;
+        $user->cpf = FormatCpf($request->cpf);
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return back()->with('sucess', 'Cadastro realizado com sucesso!');
     }
 
     /**
@@ -48,10 +61,9 @@ class EditUserRecordController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        $users = User::find($id);
-        return view('editUserRecord', ['users'=>$users, 'id' => $id]);
+        //
     }
 
     /**
@@ -72,33 +84,9 @@ class EditUserRecordController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(userRequest $request)
+    public function update(Request $request, User $user)
     {
-        function FormatCpf($requestCpf){
-
-            // Extrai somente os números
-            $cpf = preg_replace( '/[^0-9]/is', '', $requestCpf );
-            return $cpf;
-        }
-
-        DB::beginTransaction();
-        try{
-            $user = User::find($request->id);
-            $user->name = $request->name;
-            $user->occupation = $request->occupation;
-            $user->email = $request->email;
-            $user->cpf = FormatCpf($request->cpf);
-            $user->password = Hash::make($request->password);
-            $user->save();
-
-            DB::commit();
-            return back()->with("sucess", "Usuário atualizado com sucesso!");
-
-        } catch(\Exception $exception) {
-            DB::rollBack();
-            return 'Message:' . $exception->getMessage();
-        }
-        
+        //
     }
 
     /**

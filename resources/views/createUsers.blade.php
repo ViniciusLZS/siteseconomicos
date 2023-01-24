@@ -4,9 +4,9 @@
     <link rel="stylesheet" href="{{ url('...') }}">
 @endsection
 
-@section('title', 'Usuário Selecionado')
+@section('title', 'Cadastrar Usuário')
 @php
-    $page = 'Usuário Selecionado';
+    $page = 'Cadastrar Usuário';
 @endphp
 
 @section('content')
@@ -17,7 +17,7 @@
   
   <div class="page-inner container">
       <div class="page-header">
-        <h4 class="page-title">Usuário</h4>
+        <h4 class="page-title">Cadastro</h4>
         <ul class="breadcrumbs">
           <li class="nav-home">
             <a href="#">
@@ -34,32 +34,29 @@
             <i class="flaticon-right-arrow"></i>
           </li>
             <li class="nav-item">
-              <a href="{{ route('listUsers') }}">Lista de Usuários</a>
+              <a href="#">Cadastrar Usuário</a>
             </li>
           <li class="separator">
             <i class="flaticon-right-arrow"></i>
           </li>
-            <li class="nav-item">
-              <a href="#">Editar Usuário</a>
-            </li>
         </ul>
       </div>
       <div class="row">
 						<div class="col-md-12">
 							<div class="card">
 								<div class="card-header">
-									<div class="card-title">Editar Informações do Usuário: {{$users->name}}</div>
+									<div class="card-title">Cadastro de novo usuário</div>
 								</div>
-                <form action="{{ route('editUserRecord.update') }}" method="post">
+                <form action="{{ route('createUsers.story') }}" method="post">
                   @csrf
-                  <input type="hidden" name="id" value="{{$users->id}}"/>
+                  <input type="hidden" name="id" value=""/>
                   <div class="card-body">
                     <div class="row">
                       <div class="col-md-12">
 
                         <div class="form-group">
                           <label for="name">Nome Completo</label>
-                          <input type="text" value="{{$users->name}}" name="name" class="form-control  @error('name') is-invalid @enderror" id="name" placeholder="full name">
+                          <input type="text" value="{{old('name')}}" name="name" class="form-control  @error('name') is-invalid @enderror" id="name" placeholder="full name">
 
                           @if ($errors->has('name'))
                             <span class="invalid-feedback">
@@ -70,7 +67,7 @@
 
                         <div class="form-group">
                           <label for="Funcao">Função</label>
-                          <input type="text" value="{{$users->occupation}}" name="occupation" class="form-control @error('occupation') is-invalid @enderror" id="Funcao" placeholder="Occupation">
+                          <input type="text" value="{{old('occupation')}}" name="occupation" class="form-control @error('occupation') is-invalid @enderror" id="Funcao" placeholder="Occupation">
 
                           @if ($errors->has('occupation'))
                             <span class="invalid-feedback">
@@ -81,7 +78,7 @@
 
                         <div class="form-group">
                           <label for="email2">Email</label>
-                          <input type="email" value="{{$users->email}}" name="email" class="form-control @error('email') is-invalid @enderror" id="email2" placeholder="example@example.com">
+                          <input type="email" value="{{old('email')}}" name="email" class="form-control @error('email') is-invalid @enderror" id="email2" placeholder="example@example.com">
 
                           @if ($errors->has('email'))
                             <span class="invalid-feedback">
@@ -92,7 +89,7 @@
 
                         <div class="form-group">
                           <label for="cpf">CPF</label>
-                          <input type="text" value="{{$users->cpf}}" name="cpf" class="cpf form-control @error('cpf') is-invalid @enderror" id="cpf" placeholder="000.000.000-00">
+                          <input type="text" value="{{old('cpf')}}" name="cpf" class="cpf form-control @error('cpf') is-invalid @enderror" id="cpf" placeholder="000.000.000-00">
                           
                           @if ($errors->has('cpf'))
                             <span class="invalid-feedback">

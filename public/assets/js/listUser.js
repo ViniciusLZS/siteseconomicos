@@ -1,4 +1,4 @@
-
+notify();
 function delete_Modal(user) {
 			let content = `
 											<input type="hidden" name="id" value="${user.id}"/>
