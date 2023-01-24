@@ -13,8 +13,8 @@
         @yield('content')
       </div>
 
-      @include('layout.footer')
     </div>
+    @include('layout.footer')
     
   </div>
 
