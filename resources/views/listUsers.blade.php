@@ -109,62 +109,53 @@
 								</tfoot>
 
 									<tbody>
-								@foreach ($users as $user)
-										<tr class="text-center">
-											<td>{{$user->name}}</td>
-											<td>{{$user->occupation}}</td>
-											<td>{{$user->email}}</td>
-											<td class="cpf">{{$user->cpf}}</td>
-											<td>
-												<form action="{{ route('listUsers.update') }}" method="post">
-													@csrf
-													<input type="hidden" name="id" value="{{ $user->id }}"/>
-													<div class=" form-switch d-flex justify-content-center">
-														
-														<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" {{$user->status === 1 ? 'checked' : ''}} onChange="this.form.submit()" name="status" value="{{$user->status}}">
+										@foreach ($users as $user)
+											<tr class="text-center">
+												<td>{{$user->name}}</td>
+												<td>{{$user->occupation}}</td>
+												<td>{{$user->email}}</td>
+												<td class="cpf">{{$user->cpf}}</td>
+												<td>
+													<form action="{{ route('listUsers.update') }}" method="post">
+														@csrf
+														<input type="hidden" name="id" value="{{ $user->id }}"/>
+														<div class=" form-switch d-flex justify-content-center">
+															
+															<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" {{$user->status === 1 ? 'checked' : ''}} onChange="this.form.submit()" name="status" value="{{$user->status}}">
+														</div>
+													</form>
+												</td>
+												<td>
+													<div class="form-button-action d-flex justify-content-center">
+														<form class="mb-0" action="{{route('viewUser.show', $user->id)}}" method="GET">
+															@csrf
+															<button type="submit" data-toggle="tooltip"  title="Visializar" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
+															<i class="fa icon-eye"></i>
+														</button>
+														</form>
+
+														<form class="mb-0" action="{{route('editUserRecord.show', $user->id)}}" method="GET">
+															@csrf
+															<button type="submit" data-toggle="tooltip"  title="Editar" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
+															<i class="fa fa-edit"></i>
+														</button>
+														</form>
+
+														<button onclick="delete_Modal({{ $user }})" class="btn btn-link btn-danger" data-toggle="modal" title="Deletar" data-target="#addRowModal">
+															<i class="fa fa-times"></i>
+														</button>
 													</div>
-												</form>
-											</td>
-											<td>
-												<div class="form-button-action d-flex justify-content-center">
-													<form class="mb-0" action="{{route('viewUser.show', $user->id)}}" method="GET">
-														@csrf
-														<button type="submit" data-toggle="tooltip"  title="Visializar" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
-														<i class="fa icon-eye"></i>
-													</button>
-													</form>
-
-													<form class="mb-0" action="{{route('editUserRecord.show', $user->id)}}" method="GET">
-														@csrf
-														<button type="submit" data-toggle="tooltip"  title="Editar" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
-														<i class="fa fa-edit"></i>
-													</button>
-													</form>
-
-													<button onclick="delete_Modal({{ $user }})" class="btn btn-link btn-danger" data-toggle="modal" title="Deletar" data-target="#addRowModal">
-														<i class="fa fa-times"></i>
-													</button>
-												</div>
-											</td>
-										</tr>	
-								@endforeach
+												</td>
+											</tr>	
+										@endforeach
 									</tbody>
 							</table>
-
-							{{-- <div class="row px-3">
-									<div class="col-12 d-flex flex-column align-items-center">
-											{{ $users->links() }}
-									</div>
-							</div> --}}
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 @endsection
-
-
-
 
 @section('script')
 	<script src="../assets/js/listUser.js"></script>
