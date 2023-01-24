@@ -16,9 +16,7 @@
 			<h4 class="page-title">Usuários</h4>
 			<ul class="breadcrumbs">
 				<li class="nav-home">
-					<a href="#">
-						<i class="flaticon-home"></i>
-					</a>
+						<a href="{{route('welcome')}}"><i class="flaticon-home"></i></i></a>
 				</li>
 				<li class="separator">
 					<i class="flaticon-right-arrow"></i>
