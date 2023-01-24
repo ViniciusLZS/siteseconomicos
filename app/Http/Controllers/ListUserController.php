@@ -73,11 +73,13 @@ class ListUserController extends Controller
         
         $data_form = $request->all();
         $data_form['status'] = (!isset($data_form['status']))? 0 : 1;
-
+    
         $users = User::find($request->id);
         $users->status = $data_form['status'];
         $users->save();
-        return back()->with("sucess", "Usuario atualizado com sucesso");
+
+        $message = $data_form['status'] === 1 ? 'Ativado' : 'Desativado';
+        return back()->with("sucess", "Usuario $message com sucesso!");
     }
 
     /**
@@ -90,6 +92,6 @@ class ListUserController extends Controller
     {
         $user = User::find($request->id);
         $user->delete();
-        return back()->with("sucess", "Usuario removido com sucesso");
+        return back()->with("sucess", "Usuario REMOVIDO com sucesso!");
     }
 }
