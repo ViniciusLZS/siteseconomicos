@@ -10,7 +10,7 @@
 @endphp
 
 @section('content')
-  <div class="page-inner">
+  <div class="page-inner container">
       <div class="page-header">
         <h4 class="page-title">Usuário</h4>
         <ul class="breadcrumbs">
