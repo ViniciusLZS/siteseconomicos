@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CreateUsersController;
 use App\Http\Controllers\EditUserRecordController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ListUserController;
 use App\Http\Controllers\viewUserController;
 use Illuminate\Support\Facades\Route;
@@ -17,9 +18,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route Welcome 
+Route::get('/', [HomeController::class, 'index'])->name('welcome');
 
 //Router createUsers 
 Route::get('/createUsers', [CreateUsersController::class, 'index'])->name('createUsers');
