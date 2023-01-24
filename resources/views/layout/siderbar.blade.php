@@ -79,8 +79,8 @@
 										</a>
 									</li>
 									<li>
-										<a href="components/buttons.html">
-											<span class="sub-item">Criar Usuário</span>
+										<a href="{{ route('createUsers') }}">
+											<span class="sub-item">Cadastrar Usuário</span>
 										</a>
 									</li>
 								</ul>
