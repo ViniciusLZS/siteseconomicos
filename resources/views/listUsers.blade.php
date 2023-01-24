@@ -13,6 +13,7 @@
 @section('content')
 	<div class="page-inner ">
 		<div class="page-header">
+
 			<h4 class="page-title">Usuários</h4>
 			<ul class="breadcrumbs">
 				<li class="nav-home">
@@ -35,9 +36,13 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="card">
-					<div class="card-header">
+					<div class="card-header">	
 						<div class="d-flex align-items-center">
 							<h4 class="card-title">Lista de Usuários</h4>
+							<a href="{{route('createUsers')}}" class="btn btn-primary btn-round ml-auto">
+								<i class="fa fa-plus"></i>
+								Add Usuário
+							</a>
 						</div>
 					</div>
 					<div class="card-body">
@@ -103,8 +108,8 @@
 									</tr>
 								</tfoot>
 
-								@foreach ($users as $user)
 									<tbody>
+								@foreach ($users as $user)
 										<tr class="text-center">
 											<td>{{$user->name}}</td>
 											<td>{{$user->occupation}}</td>
@@ -142,9 +147,15 @@
 												</div>
 											</td>
 										</tr>	
-									</tbody>
 								@endforeach
+									</tbody>
 							</table>
+
+							{{-- <div class="row px-3">
+									<div class="col-12 d-flex flex-column align-items-center">
+											{{ $users->links() }}
+									</div>
+							</div> --}}
 						</div>
 					</div>
 				</div>
