@@ -10,6 +10,11 @@
 @endphp
 
 @section('content')
+<!-- Notification -->
+  @if (session('sucess'))
+    <p class="notify d-none">{{ session('sucess') }}</p>
+  @endif
+  
   <div class="page-inner container">
       <div class="page-header">
         <h4 class="page-title">Usuário</h4>
@@ -126,5 +131,6 @@
 @endsection
 
 @section('script')
+  <script>notify()</script>
   <script src="../assets/js/maskCpf.js"></script>
 @endsection
