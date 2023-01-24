@@ -92,7 +92,7 @@ class EditUserRecordController extends Controller
             $user->save();
 
             DB::commit();
-            return back()->with("sucess", "Usuario atualizado com sucesso.");
+            return back()->with("sucess", "Usuário atualizado com sucesso!");
 
         } catch(\Exception $exception) {
             DB::rollBack();
