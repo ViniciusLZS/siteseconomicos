@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CreateUsersController;
 use App\Http\Controllers\EditUserRecordController;
 use App\Http\Controllers\ListUserController;
 use App\Http\Controllers\viewUserController;
@@ -20,9 +21,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Router List User
+//Router createUsers 
+Route::get('/createUsers', [CreateUsersController::class, 'index'])->name('createUsers');
+Route::post('/createUsers/story', [CreateUsersController::class, 'store'])->name('createUsers.story');
+
+// Router ListUser
 Route::get('/listUsers', [ListUserController::class, 'index'])->name('listUsers');
 Route::post('/listUsers/update', [ListUserController::class, 'update'])->name('listUsers.update');
+//Router Destroy listUser
 Route::post('/listUsers/destroy', [ListUserController::class, 'destroy'])->name('listUsers.destroy');
 
 //Router viewUser
