@@ -1,6 +1,3 @@
-//Notification
-notify();
-
 //Modal delete User
 function delete_Modal(user) {
 			let content = `
