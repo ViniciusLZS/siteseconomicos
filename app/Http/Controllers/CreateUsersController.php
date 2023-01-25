@@ -52,7 +52,7 @@ class CreateUsersController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-        return back()->with('sucess', 'Cadastro realizado com sucesso!');
+        return back()->with('success', 'Cadastro realizado com sucesso!');
     }
 
     /**
