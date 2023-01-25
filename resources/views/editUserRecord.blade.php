@@ -10,11 +10,6 @@
 @endphp
 
 @section('content')
-<!-- Notification -->
-  @if (session('sucess'))
-    <p class="notify d-none">{{ session('sucess') }}</p>
-  @endif
-  
   <div class="page-inner container">
       <div class="page-header">
         <h4 class="page-title">Usuário</h4>
@@ -129,6 +124,24 @@
 @endsection
 
 @section('script')
-  <script>notify()</script>
+  <!-- Notification -->
+@if (session('sucess'))
+	<script>
+		$.notify({
+			icon: 'flaticon-alarm-1',
+			title: 'Notificação',
+			message: "{{ session('sucess') }}",
+		},{
+			type: 'success',
+			placement: {
+				from: "bottom",
+				align: "right"
+			},
+			time: 1000,
+		});
+	</script>
+@endif
+
+  <!-- table filters -->
   <script src="../assets/js/maskCpf.js"></script>
 @endsection

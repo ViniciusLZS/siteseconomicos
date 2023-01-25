@@ -78,12 +78,6 @@
 							</div>
 						</div>
 
-						<!-- Notification -->
-						@if (session('sucess'))
-							<p class="notify d-none">{{ session('sucess') }}</p>
-						@endif
-
-
 						<div class="table-responsive">
 							<table id="add-row" class="display table table-striped table-hover" >
 								<thead>
@@ -158,8 +152,30 @@
 @endsection
 
 @section('script')
+	<!-- Notification -->
+	@if (session('sucess'))
+		<script>
+			$.notify({
+				icon: 'flaticon-alarm-1',
+				title: 'Notificação',
+				message: "{{ session('sucess') }}",
+			},{
+				type: 'success',
+				placement: {
+					from: "bottom",
+					align: "right"
+				},
+				time: 1000,
+			});
+		</script>
+	@endif
+	<!-- Modal delete -->
 	<script src="../assets/js/listUser.js"></script>
+
+	<!-- Mask CPF -->
 	<script src="../assets/js/maskCpf.js"></script>
+
+	<!-- table filters -->
 	<script >
 		$(document).ready(function() {
 			$('#basic-datatables').DataTable({
