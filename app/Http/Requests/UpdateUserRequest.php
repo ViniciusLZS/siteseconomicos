@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Rules\RightCpf;
 use Illuminate\Foundation\Http\FormRequest;
 
-class userRequest extends FormRequest
+class UpdateUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -42,8 +42,10 @@ class userRequest extends FormRequest
         ];
     }
 
-    // public function messages()
-    // {
-    //     //
-    // }
+    public function messages()
+    {
+        return [
+            'password.confirmed' => 'O campo :attribute não confere com o campo de confirmar senha'
+        ];
+    }
 }
