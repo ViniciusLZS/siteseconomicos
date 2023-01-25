@@ -16,23 +16,19 @@ Circles.create({
 })
 
 //Notify
-function notify(){
-	const test = document.querySelector('.notify');
-	const teste = test.innerText;
-
 	$.notify({
 		icon: 'flaticon-alarm-1',
 		title: 'Notificação',
-		message: teste,
+		message: "Message",
 	},{
-		type: 'info',
+		type: 'Free Bootstrap 4 Admin Dashboard',
 		placement: {
 			from: "bottom",
 			align: "right"
 		},
 		time: 1000,
 	});
-}
+
 // JQVmap
 $('#map-example').vectorMap(
 {
