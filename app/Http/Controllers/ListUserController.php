@@ -79,7 +79,7 @@ class ListUserController extends Controller
         $users->save();
 
         $message = $data_form['status'] === 1 ? 'Ativado' : 'Desativado';
-        return back()->with("sucess", "Usuário $message com sucesso!");
+        return back()->with("warning", "Usuário $message com sucesso!");
     }
 
     /**
@@ -92,6 +92,6 @@ class ListUserController extends Controller
     {
         $user = User::find($request->id);
         $user->delete();
-        return back()->with("sucess", "Usuário REMOVIDO com sucesso!");
+        return back()->with("success", "Usuário REMOVIDO com sucesso!");
     }
 }
