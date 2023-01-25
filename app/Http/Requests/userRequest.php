@@ -26,7 +26,7 @@ class userRequest extends FormRequest
     {
         return [
             'name'                  =>  ['required','string'],
-            'password'              =>  ['required','confirmed','min:8'],
+            'password'              =>  ['confirmed'],
             'email'                 =>  ['required','email', "unique:users,email,{$this->id}"],
             'occupation'            =>  ['required','string'],
             'cpf'                   =>  ["required","unique:users,cpf,{$this->id}",new RightCpf],
