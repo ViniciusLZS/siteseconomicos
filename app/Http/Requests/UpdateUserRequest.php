@@ -45,7 +45,7 @@ class UpdateUserRequest extends FormRequest
     public function messages()
     {
         return [
-            'password.confirmed' => 'O campo :attribute não confere com o campo de confirmar senha'
+            'password.confirmed' => 'O campo de confirmar senha está diferente do campo de :attribute.',
         ];
     }
 }
