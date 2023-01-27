@@ -109,7 +109,7 @@
 
                         <div class="form-group">
                           <label for="password">Confirmar Senha</label>
-                          <input type="password" class="form-control" id="password" name="password_confirmation" placeholder="Confirm Password">
+                          <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password_confirmation" placeholder="Confirm Password">
                         </div>
                       </div>
                     </div>
